@@ -14,8 +14,7 @@ import Ola from './Ola';
 //     </View>
 //   );
 // }
-
-export default class App extends Component {
+class App extends Component {
   render(){
     return (
       <View style={styles.container}>
@@ -83,6 +82,8 @@ Privacy Policy · Do Not Sell My Personal Information · Change Consent
     );
   }
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {
