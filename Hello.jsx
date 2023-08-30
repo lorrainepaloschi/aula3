@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-export default Hello = () => {
+export default function Hello () {
     return (
       <Text>You're Welcome!</Text>
     );
