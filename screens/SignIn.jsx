@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from "react-native"
-import Pad from './pad';
-import TitledTextInput from './titled_text_input';
+import Pad from '../components/pad';
+import TitledTextInput from '../components/titled_text_input';
 
 
 function SignIn() {
