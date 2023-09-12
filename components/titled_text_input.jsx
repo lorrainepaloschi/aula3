@@ -17,6 +17,6 @@ export default TitledTextInput = (props) => {
             <Text style={styles.paragraph}>
                 {props.title}
             </Text>
-            <BasicTextInput placeholder={props.placeholder}/>
+            <BasicTextInput placeholder={props.placeholder} height={props.height}/>
         </View>)
 }

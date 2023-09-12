@@ -1,9 +1,9 @@
 import { TextInput, StyleSheet } from "react-native"
 
 export default BasicTextInput = (props) => {
-    const styles = StyleSheet.create({
+    var styles = StyleSheet.create({
         input: {
-          height: 40,
+          height: props.height,
           margin: 12,
           borderWidth: 0,
           backgroundColor:"#D1D1D1",
