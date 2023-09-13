@@ -3,7 +3,7 @@ import Pad from '../components/pad';
 import TitledTextInput from '../components/titled_text_input';
 
 
-function LogIn() {
+const LogIn = ({navigation}) => {
     const styles = StyleSheet.create({
         title: {
           color: '#1c2120',
@@ -42,7 +42,9 @@ function LogIn() {
         <TitledTextInput placeholder="User" title="USUARIO" height={60}/>
         <TitledTextInput placeholder="**********" title="SENHA" height={60}/>
         <Pad height={10}/>
-        <Pressable style={styles.button} onPress={()=>console.log("pressed")}>
+        <Pressable style={styles.button} onPress={() =>
+          navigation.navigate('SigIn')
+        }>
             <Text style={styles.text}>Login</Text>
         </Pressable>
         <Pad height={30}/>
@@ -52,7 +54,7 @@ function LogIn() {
     );
   }
 
-export default LogInScreen = (props) => {
+export default  LogInScreen = ({navigation}) => {
     const styles = StyleSheet.create({
         container: {
           flex: 563,
@@ -95,7 +97,7 @@ export default LogInScreen = (props) => {
                 />
             </View>
             <View style={styles.container}>
-                {<LogIn/>}
+                {<LogIn navigation={navigation}/>}
             </View>
         </View>
     )
