@@ -43,13 +43,18 @@ const LogIn = ({navigation}) => {
         <TitledTextInput placeholder="**********" title="SENHA" height={60}/>
         <Pad height={10}/>
         <Pressable style={styles.button} onPress={() =>
-          navigation.navigate('SigIn')
+          console.log(navigation)
         }>
             <Text style={styles.text}>Login</Text>
         </Pressable>
         <Pad height={30}/>
         <Text style={styles.subtitle}>Esqueceu a senha?</Text>
-        <Text style={styles.subtitle}>Cadastre-se</Text>
+        <Pressable onPress={() =>
+          navigation.navigate('SigIn')
+        }>
+            <Text style={styles.subtitle}>Cadastre-se</Text>
+        </Pressable>
+        
       </View>
     );
   }
