@@ -25,7 +25,7 @@ export default BaseScreem = (props) => {
 
             </View>
             <View style={styles.container}>
-                {props.content()}
+                {props.content}
             </View>
         </View>
     )

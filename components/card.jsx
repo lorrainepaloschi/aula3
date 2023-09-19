@@ -37,7 +37,7 @@ export default card = (props) => {
       });
 
     return(
-        <Pressable style={styles.button} onPress={()=>console.log("pressed")}>
+        <Pressable style={styles.button} onPress={props.action}>
           <Image
                     style={styles.logo}
                     source={{
