@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Pressable } from "react-native"
+import { StyleSheet, Text, Pressable, Image } from "react-native"
 
 
 export default card = (props) => {
@@ -8,10 +8,10 @@ export default card = (props) => {
           fontSize: 45,
           alignSelf: "center",
           textAlign: "center",
-          paddingHorizontal:70,
+          paddingHorizontal:10,
         },
         text: {
-            color: '#ffffff',
+            color: '#000',
             fontSize: 20,
             alignSelf: "center",
             textAlign: "center",
@@ -24,17 +24,26 @@ export default card = (props) => {
         button: {
             alignItems: 'center',
             justifyContent: 'center',
-            alignSelf:'center',
-            borderRadius: 4,
+            borderRadius: 15,
             backgroundColor: '#e1e1e1',
-            height:150,
-            width:150,
+            height:130,
+            width:130,
+          },
+        logo: {
+          flex: .7,
+          aspectRatio: 1.5, 
+          resizeMode: 'contain',
           },
       });
 
     return(
         <Pressable style={styles.button} onPress={()=>console.log("pressed")}>
-            <Text style={styles.text}>Login</Text>
+          <Image
+                    style={styles.logo}
+                    source={{
+                    uri: props.uri,
+                    }}/>         
+          <Text style={styles.text}>{props.title}</Text>
         </Pressable>
     )
 }
