@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text } from "react-native"
 import Pad from '../components/pad';
 import TitledTextInput from '../components/titled_text_input';
+import Base_screen from "../components/base_screen";
 
 
 function SignIn() {
@@ -32,32 +33,8 @@ function SignIn() {
     );
   }
 
-export default SignInScreen = (props) => {
-    const styles = StyleSheet.create({
-        container: {
-          flex: 6,
-          backgroundColor: '#fff',
-          alignItems: 'center',
-          padding:4,
-          justifyContent: 'center',
-          borderTopLeftRadius:100,
-        },
-        iconView: {
-            flex: 1,
-            backgroundColor: '#1C2120',
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-      });
-    
+export default SignInScreen = (props) => { 
     return (
-        <View style={{flex:1, backgroundColor:'#1c2120'}}>
-            <View style={styles.iconView}>
-
-            </View>
-            <View style={styles.container}>
-                {<SignIn/>}
-            </View>
-        </View>
+        <Base_screen content={SignIn}/>
     )
 }
