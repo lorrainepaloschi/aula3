@@ -3,7 +3,7 @@ import Base_screen from "../components/base_screen"
 import Card from "../components/card";
 import Pad from "../components/pad";
 
-const home = (challengesRedirect) =>{
+const challengeScreen = () =>{
 
     const styles = StyleSheet.create({
         Title: {
@@ -16,7 +16,7 @@ const home = (challengesRedirect) =>{
         Subtitle: {
             color: 'black',
             marginHorizontal: 23,
-            fontSize:15,
+            fontSize:17,
             alignSelf:'center',
             textAlign:'justify'
           },
@@ -29,25 +29,25 @@ const home = (challengesRedirect) =>{
 
     return(
         <View>
-            <Text style={styles.Title}>Explorar</Text>
+            <Text style={styles.Title}>Desafios</Text>
             <Pad height={25}/>
-            <Text style={styles.Subtitle}>Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar ExplorarExplorar ExplorarExplorar ExplorarExplorar Explorar</Text>
+            <Text style={styles.Subtitle}>Comprometer-se com algum desafio pode ser mais facil de atingir suas metas e tornar a tragetoria mais divertida e com trofeus.</Text>
             <Pad height={75}/>
             <View style={styles.Row}>
-                <Card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Seus trofeus"></Card>
-                <Card uri="https://media-public.canva.com/X37ZY/MAFmuSX37ZY/1/t.png" title="Desafios" action={challengesRedirect}></Card>
+                <Card uri="https://media-public.canva.com/2JxaM/MAEF192JxaM/1/t.png" title="Ciclismo"></Card>
+                <Card uri="https://media-public.canva.com/d3qUs/MAEqEEd3qUs/1/t.png" title="Musculação"></Card>
             </View>
             <Pad height={15}/>
             <View style={styles.Row}>
-                <Card uri="https://media-public.canva.com/yZXhs/MAEuj3yZXhs/1/t.png" title="Adicionar exercicio"></Card>
-                <Card uri="https://media-public.canva.com/fptjU/MACpOTfptjU/2/t.png" title="Grupos"></Card>
+                <Card uri="https://media-public.canva.com/Tep_Y/MAEqtwTep_Y/1/t.png" title="Corrida"></Card>
+                <Card uri="blob:https://www.canva.com/06d9b41a-7cb9-4ba5-a4c3-a59484df0f59" title="Natação"></Card>
             </View>
         </View>
     )
 }
 
-export default Home = ({navigation}) => {
+export default Challenges = () => {
     return(
-        <Base_screen content={home(()=>navigation.navigate('Challenges'))}/>
+        <Base_screen content={challengeScreen()}/>
     )
 }

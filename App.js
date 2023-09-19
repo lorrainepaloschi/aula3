@@ -2,6 +2,8 @@ import SignInScreen from './screens/SignIn';
 import LogInScreen from './screens/LogIn';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from './screens/Home';
+import Challenges from './screens/Challenges';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,14 @@ export default function App() {
         <Stack.Screen
           name="SigIn"
           component={SignInScreen}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+        />
+        <Stack.Screen
+          name="Challenges"
+          component={Challenges}
         />
       </Stack.Navigator>
     </NavigationContainer>
