@@ -12,8 +12,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator 
         screenOptions={{
-          headerShown: false
-      }}>
+          headerShown: true,
+          title: "",
+          headerTintColor: 'white',
+          headerTransparent: true,
+        }}>
         <Stack.Screen name="LogIn" component={LogInScreen} />
         <Stack.Screen
           name="SigIn"
