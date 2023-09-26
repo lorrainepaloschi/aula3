@@ -35,6 +35,6 @@ function SignIn() {
 
 export default SignInScreen = (props) => { 
     return (
-        <Base_screen content={SignIn}/>
+        <Base_screen content={SignIn()}/>
     )
 }
