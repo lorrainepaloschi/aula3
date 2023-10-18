@@ -3,7 +3,7 @@ import Base_screen from "../components/base_screen"
 import Card from "../components/card";
 import Pad from "../components/pad";
 
-const home = (challengesRedirect) =>{
+const home = (challengesRedirect, trophiesRedirect) =>{
 
     const styles = StyleSheet.create({
         Title: {
@@ -34,7 +34,7 @@ const home = (challengesRedirect) =>{
             <Text style={styles.Subtitle}>Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar ExplorarExplorar ExplorarExplorar ExplorarExplorar Explorar</Text>
             <Pad height={75}/>
             <View style={styles.Row}>
-                <Card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Seus trofeus"></Card>
+                <Card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Seus trofeus" action={trophiesRedirect}></Card>
                 <Card uri="https://media-public.canva.com/X37ZY/MAFmuSX37ZY/1/t.png" title="Desafios" action={challengesRedirect}></Card>
             </View>
             <Pad height={15}/>
@@ -48,6 +48,13 @@ const home = (challengesRedirect) =>{
 
 export default Home = ({navigation}) => {
     return(
-        <Base_screen content={home(()=>navigation.navigate('Challenges'))}/>
+        <Base_screen 
+            content={
+                home(
+                    challengesRedirect = ()=>navigation.navigate('Challenges'),
+                    trophiesRedirect = ()=>navigation.navigate('Trophies')
+                )
+            }
+        />
     )
 }
