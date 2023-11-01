@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import Challenges from './screens/Challenges';
 import Trophies from './screens/Trophies';
+import AddExercise from './screens/AddExercise';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Challenges" component={Challenges} />
         <Stack.Screen name="Trophies" component={Trophies} options={{title:"Seus Trofeus"}}/>
+        <Stack.Screen name="AddExercise" component={AddExercise} options={{title:"Esporte"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

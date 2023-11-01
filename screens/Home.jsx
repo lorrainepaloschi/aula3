@@ -3,7 +3,7 @@ import Base_screen from "../components/base_screen"
 import Card from "../components/card";
 import Pad from "../components/pad";
 
-const home = (challengesRedirect, trophiesRedirect) =>{
+const home = (challengesRedirect, trophiesRedirect, addExerciseRedirect) =>{
 
     const styles = StyleSheet.create({
         Title: {
@@ -39,7 +39,7 @@ const home = (challengesRedirect, trophiesRedirect) =>{
             </View>
             <Pad height={15}/>
             <View style={styles.Row}>
-                <Card uri="https://media-public.canva.com/yZXhs/MAEuj3yZXhs/1/t.png" title="Adicionar exercicio"></Card>
+                <Card uri="https://media-public.canva.com/yZXhs/MAEuj3yZXhs/1/t.png" title="Adicionar exercicio" action={addExerciseRedirect}></Card>
                 <Card uri="https://media-public.canva.com/fptjU/MACpOTfptjU/2/t.png" title="Grupos"></Card>
             </View>
         </View>
@@ -52,7 +52,8 @@ export default Home = ({navigation}) => {
             content={
                 home(
                     challengesRedirect = ()=>navigation.navigate('Challenges'),
-                    trophiesRedirect = ()=>navigation.navigate('Trophies')
+                    trophiesRedirect = ()=>navigation.navigate('Trophies'),
+                    addExerciseRedirect = ()=>navigation.navigate('AddExercise')
                 )
             }
         />
