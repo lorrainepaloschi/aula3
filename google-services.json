@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614743479653",
+    "project_id": "gymtracker-5ba73",
+    "storage_bucket": "gymtracker-5ba73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614743479653:android:97d025a060747f25b17d8c",
+        "android_client_info": {
+          "package_name": "com.aula3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD6R3DDNAWwRpofHyPO03NbcLUH0U9-z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
