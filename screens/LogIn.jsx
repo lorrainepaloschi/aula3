@@ -1,4 +1,34 @@
-import { StyleSheet, View, Text, Image, Pressable } from "react-native"
+import React from "react"
+import { KeyboardAvoidingView, StyleSheet, View, Text } from "react-native"
+import { TextInput } from "react-native-paper"
+
+
+const LoginScreen = () => {
+  return(
+    <KeyboardAvoidingView style={style.container}
+    behavior="padding">
+    <View style={styles.inputContainer}>
+      <TextInput 
+      placeholder="Email"
+      //value={}
+      //onChangeText={text => }
+      />
+      <TextInput 
+      placeholder="Password"
+      //value={}
+      //onChangeText={text => }
+      />
+    </View>  
+
+    </KeyboardAvoidingView>
+    
+  )
+
+}
+
+export default LoginScreen
+const styles = StyleSheet.create({})
+/*import { StyleSheet, View, Text, Image, Pressable } from "react-native"
 import Pad from '../components/pad';
 import TitledTextInput from '../components/titled_text_input';
 
@@ -107,3 +137,4 @@ export default  LogInScreen = ({navigation}) => {
         </View>
     )
 }
+*/
