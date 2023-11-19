@@ -8,6 +8,8 @@ export default TitledTextInput = (props) => {
           color: '#D1D1D1',
           marginLeft: 23,
           marginBottom:-5,
+          textTransform: 'lowercase',
+          autoCapitalize: 'both',
         }
       });
     

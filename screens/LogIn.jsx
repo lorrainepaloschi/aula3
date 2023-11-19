@@ -1,9 +1,29 @@
-import { StyleSheet, View, Text, Image, Pressable } from "react-native"
+import { StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native"
 import Pad from '../components/pad';
 import TitledTextInput from '../components/titled_text_input';
+import { useState } from "react";
+import Base_screen from "../components/base_screen";
+import { auth } from "../firebase";
 
 
 const LogIn = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logado com email:', user.email);
+        navigation.navigate('Home'); 
+      })
+      .catch(error => {
+        console.log('Usuário não cadastrado ou senha incorreta')
+        alert('Usuário não cadastrado ou senha incorreta');
+      });
+  };
+
     const styles = StyleSheet.create({
         title: {
           color: '#1c2120',
@@ -39,12 +59,23 @@ const LogIn = ({navigation}) => {
         <Text style={styles.title}>Log In</Text>
         <Text style={styles.subtitle}>Entre na sua conta para continuar</Text>
         <Pad height={30}/>
-        <TitledTextInput placeholder="User" title="USUARIO" height={60}/>
-        <TitledTextInput placeholder="**********" title="SENHA" height={60}/>
+        <TextInput
+        placeholder="email@email.com"
+        keyboardType="email-address"
+        autoCapitalize="none"
+        style={styles.input}
+        value={email}
+        onChangeText={text => setEmail(text)}
+      />
+      <TextInput
+        placeholder="Senha"
+        secureTextEntry
+        style={styles.input}
+        value={password}
+        onChangeText={text => setPassword(text)}
+      />
         <Pad height={10}/>
-        <Pressable style={styles.button} onPress={() =>
-          navigation.navigate('Home')
-        }>
+        <Pressable style={styles.button} onPress={handleLogin}>
             <Text style={styles.text}>Login</Text>
         </Pressable>
         <Pad height={30}/>
