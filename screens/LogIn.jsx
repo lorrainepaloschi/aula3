@@ -50,6 +50,14 @@ const LogIn = ({navigation}) => {
             height:55,
             width:250,
           },
+        input: {
+            height: 55,
+            margin: 12,
+            borderWidth: 0,
+            backgroundColor:"#D1D1D1",
+            borderRadius:50,
+            padding: 10,
+          },
       });
     
     return (
