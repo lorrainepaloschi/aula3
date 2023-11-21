@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, ScrollView, Pressable} from "react-native"
+import { StyleSheet, View, Text, TextInput, ScrollView, Pressable, Image} from "react-native"
 import Pad from "../components/pad";
 
 
@@ -73,9 +73,6 @@ const AddExerciseScreen = ({navigation}) => {
         </View>
         <Pad height={25}></Pad>
         <View style={{flexDirection: 'column', rowGap:12}}>
-          <View style={{flexDirection: 'row', alignSelf:'center', gap:12}}>
-            <View style={{height: 150, flex: .8, backgroundColor:"#e1e1e1", borderRadius: 15}}></View>
-          </View>
           <Pad height={25}></Pad>
           <View style={{marginHorizontal:25}}>
             <Text style={styles.input_title}>

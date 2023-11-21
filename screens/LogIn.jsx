@@ -1,9 +1,7 @@
 import { StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native"
 import Pad from '../components/pad';
-import TitledTextInput from '../components/titled_text_input';
 import { useState } from "react";
-import Base_screen from "../components/base_screen";
-import { auth } from "../firebase";
+import { auth } from "../firebase.js";
 
 
 const LogIn = ({navigation}) => {

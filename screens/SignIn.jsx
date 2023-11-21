@@ -1,11 +1,8 @@
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, Image } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Base_screen from "../components/base_screen";
-import { auth } from "../firebase";
-import { db } from "../firebase";
+import { auth } from "../firebase.js";
+import { db } from "../firebase.js";
 import { format } from 'date-fns';
-import Pad from '../components/pad';
-import TitledTextInput from '../components/titled_text_input';
 import { useState } from "react";
 
 
@@ -94,17 +91,27 @@ function SignIn({ navigation }) {
       borderRadius: 4,
       padding: 10,
     },
+    input: {
+      height: 50,
+      margin: 12,
+      borderWidth: 0,
+      backgroundColor:"#D1D1D1",
+      borderRadius:50,
+      padding: 10,
+    },
+    datePickerContainer: {
+      height: 50,
+      margin: 12,
+      borderWidth: 0,
+      backgroundColor:"#D1D1D1",
+      borderRadius:50,
+      padding: 10,
+    },
   });
 
   return (
     <View>
-      <Text style={styles.title}>Cadastre-se Aqui</Text>
-      <Text style={styles.subtitle}>Já possui uma conta? </Text>
-      <TouchableOpacity onPress={() =>
-          navigation.navigate('LogIn')
-        }>
-            <Text style={styles.subtitle}>Entrar</Text>
-      </TouchableOpacity>
+          <Text style={styles.title}>Cadastre-se Aqui</Text>
       <TextInput
         placeholder="email@email.com"
         keyboardType="email-address"
@@ -132,6 +139,7 @@ function SignIn({ navigation }) {
       {showDatePicker && (
         <DateTimePicker
           value={dataNascimento || new Date()}
+          style={styles.DatePicker}
           mode="date"
           display="spinner"
           onChange={onChangeDate}
@@ -139,6 +147,12 @@ function SignIn({ navigation }) {
       )}
       <TouchableOpacity onPress={handleSignUp} >
         <Text style={styles.subtitle}>Cadastre-se</Text>
+      </TouchableOpacity>
+      <Text style={styles.subtitle}>Já possui uma conta? </Text>
+      <TouchableOpacity onPress={() =>
+          navigation.navigate('LogIn')
+        }>
+            <Text style={styles.subtitle}>Entrar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -184,7 +198,7 @@ export default  SignInScreen = ({navigation}) => {
               />
           </View>
           <View style={styles.container}>
-              {<LogIn navigation={navigation}/>}
+              {<SignIn navigation={navigation}/>}
           </View>
       </View>
   )

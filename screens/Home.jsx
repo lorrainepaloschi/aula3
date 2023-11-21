@@ -22,16 +22,17 @@ const home = (challengesRedirect, trophiesRedirect, addExerciseRedirect) =>{
           },
         Row: {
             flexDirection: "row",
-            paddingHorizontal:50,
-            gap:15,
+            justifyContent: "space-around",
+            paddingHorizontal:10,
+            gap:7,
         }
       });
 
     return(
         <View>
             <Text style={styles.Title}>Explorar</Text>
-            <Pad height={25}/>
-            <Text style={styles.Subtitle}>Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar Explorar ExplorarExplorar ExplorarExplorar ExplorarExplorar Explorar</Text>
+            <Pad height={12}/>
+            <Text style={styles.Subtitle}>Como podemos melhorar seu treino hoje?</Text>
             <Pad height={75}/>
             <View style={styles.Row}>
                 <Card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Seus trofeus" action={trophiesRedirect}></Card>
