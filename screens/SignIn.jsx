@@ -133,9 +133,9 @@ function SignIn({ navigation }) {
         value={nomeCompleto}
         onChangeText={text => setNomeCompleto(text)}
       />
-      <TouchableOpacity style={styles.datePickerContainer} onPress={() => setShowDatePicker(true)}>
+      {/* <TouchableOpacity style={styles.datePickerContainer} onPress={() => setShowDatePicker(true)}>
         <Text>{dataNascimento ? formatDate(dataNascimento) : 'Selecione a Data de Nascimento'}</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {showDatePicker && (
         <DateTimePicker
           value={dataNascimento || new Date()}
