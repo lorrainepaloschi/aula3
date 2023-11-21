@@ -1,6 +1,26 @@
 import { StyleSheet, View, Text, TextInput, ScrollView, Pressable, Image} from "react-native"
 import Pad from "../components/pad";
+import SelectDropdown from 'react-native-select-dropdown'
+import { AddNewTrophies, TrophiesClass, SetTrophies} from "../data/trophies";
 
+
+const modalidades = ["Caminhada", "Corrida", "Bicicletas", "Musculação"]
+const dificuldades = ["1", "2", "3", "4"]
+
+let modalidadeEscolhida = ""
+let dificuldadeEscolhida = ""
+let tempoInserido = 0
+
+function addNewTrophies(){
+  tempoInserido
+  var bike = (modalidadeEscolhida === "Bicicletas" && tempoInserido >= 300)
+  var tensteps = (modalidadeEscolhida === "Caminhada" || modalidadeEscolhida === "Corrida") && tempoInserido >= 10
+  var help = dificuldadeEscolhida > 2
+  var musclesixty = modalidadeEscolhida === "Musculação" && tempoInserido >= 60
+  var lightrunning = modalidadeEscolhida === "Corrida" && dificuldadeEscolhida <= 2
+
+  AddNewTrophies(new TrophiesClass(false, tensteps, bike, true, "", help, musclesixty, lightrunning))
+}
 
 const AddExerciseScreen = ({navigation}) => {
     const styles = StyleSheet.create({
@@ -51,6 +71,7 @@ const AddExerciseScreen = ({navigation}) => {
             textAlign:"center",
             fontSize:18,
             fontWeight:"bold",
+            width:280,
           },
           button: {
             alignItems: 'center',
@@ -78,29 +99,51 @@ const AddExerciseScreen = ({navigation}) => {
             <Text style={styles.input_title}>
                 Modalidade
             </Text>
-            <TextInput 
-              style={styles.input}
-                  placeholder="insira o tipo de esporte"
+            <SelectDropdown
+              data={modalidades}
+              onSelect={(selectedItem, index)=>{
+                modalidadeEscolhida = selectedItem
+              }}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem
+              }}
+              rowTextForSelection={(item, index) => {
+                return item
+              }}
+              defaultButtonText="Insira o tipo de esporte"
+              buttonStyle={styles.input}
               />
-              <Text style={styles.input_title}>
-                Tempo
+            <Text style={styles.input_title}>
+              Tempo
             </Text>
             <TextInput 
               style={styles.input}
-                  placeholder="00:00"
+              placeholder="insira o tempo em minutos"
+              keyboardType="numeric"
+              onChangeText={(text)=>{tempoInserido = text}}
               />
-              <Text style={styles.input_title}>
+            <Text style={styles.input_title}>
                 Dificuldade
             </Text>
-            <TextInput 
-              style={styles.input}
-                  placeholder="insira a dificuldade do esporte"
+            <SelectDropdown
+              data={dificuldades}
+              onSelect={(selectedItem, index)=>{
+                dificuldadeEscolhida = selectedItem
+              }}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem
+              }}
+              rowTextForSelection={(item, index) => {
+                return item
+              }}
+              defaultButtonText="Insira a dificuldade do esporte"
+              buttonStyle={styles.input}
               />
           </View>
           <Pad height={25}></Pad>
-          <Pressable onPress={() =>
-            console.log("OIE")
-          } style={styles.button}>
+          <Pressable onPress={() =>{
+            addNewTrophies()
+          }} style={styles.button}>
           <Text style={styles.button_text}>Adicionar Atividade</Text>
         </Pressable>
         </View>
@@ -119,8 +162,6 @@ export default AddExercise = ({navigation}) => {
         },
       });
 
-        
-    
     return (
         <View style={{flex:1, backgroundColor:'#1c2120'}}>
                 <AddExerciseScreen navigation={navigation}/>

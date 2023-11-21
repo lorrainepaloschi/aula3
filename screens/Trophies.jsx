@@ -1,61 +1,13 @@
 import { StyleSheet, View, Text} from "react-native"
 import Pad from "../components/pad";
 import Trophies_card from "../components/trophies_card";
-import { auth, db } from "../firebase.js";
 import {useState} from 'react';
-
-class TrophiesClass {
-  constructor (king, tensteps, bike, firstChallenge, uid) {
-      this.king = king
-      this.tensteps = tensteps
-      this.bike = bike
-      this.firstChallenge = firstChallenge
-      this.uid = uid
-  }
-  toString() {
-      return this.uid;
-  }
-}
-
-// Firestore data converter
-var trophiesConverter = {
-  toFirestore: function(trophies) {
-      return {
-          king: trophies.king,
-          tensteps: trophies.tensteps,
-          bike: trophies.bike,
-          firstChallenge: trophies.firstChallenge,
-          uid: trophies.uid
-          };
-  },
-  fromFirestore: function(snapshot, options){
-      const data = snapshot.data(options);
-      return new TrophiesClass(data.king, data.tensteps, data.bike, data.firstChallenge, data.uid);
-  }
-};
-
-function GetTrophies(setTrophies) {
-  db.collection("challenges")
-    .withConverter(trophiesConverter)
-    .doc(auth.currentUser.uid)
-    .get().then((doc)=>{
-      if (doc.exists){
-        setTrophies(doc.data())
-      } else {
-        db.collection("challenges").doc(auth.currentUser.uid).withConverter(trophiesConverter)
-        .set(new TrophiesClass(false,false,false,false,auth.currentUser.uid))
-        setTrophies(new TrophiesClass(false,false,false,false,auth.currentUser.uid))
-      }
-
-    });
-}
+import { GetTrophies } from "../data/trophies.jsx";
 
 
 
 const TrophiesScreen = ({navigation}) => {
     const [trophies, setTrophies] = useState('');
-    
-    console.log(trophies)
     const styles = StyleSheet.create({
         title: {
           color: '#1c2120',
@@ -87,8 +39,9 @@ const TrophiesScreen = ({navigation}) => {
         Row: {
             flexDirection: "row",
             justifyContent: "space-around",
-            paddingHorizontal:25,
-            gap:5,
+            paddingHorizontal:30,
+            flexWrap: 'wrap',
+            gap:15,
         }
       });
 
@@ -104,13 +57,14 @@ const TrophiesScreen = ({navigation}) => {
         {trophies.uid == null ?GetTrophies(setTrophies):null}
         <View style={{flexDirection: 'column', rowGap:12}}>
           <View style={styles.Row}>
-            {trophies.bike? <Trophies_card uri="https://media-public.canva.com/2JxaM/MAEF192JxaM/1/t.png" title="Desafio 300Km"/>:null}
-            {trophies.tensteps? <Trophies_card uri="https://media-public.canva.com/d3qUs/MAEqEEd3qUs/1/t.png" title="10 mil passos"/>:null}
-          </View>
-          <Pad height={25}></Pad>
-          <View style={styles.Row}>
-            {trophies.king? <Trophies_card uri="https://media-public.canva.com/Tep_Y/MAEqtwTep_Y/1/t.png" title="Rei dos Desafios"/>:null}
-            {trophies.firstChallenge? <Trophies_card useImage={true} title="1 desafio completo"/>:null}
+            {trophies.bike? <Trophies_card uri="https://media-public.canva.com/2JxaM/MAEF192JxaM/1/t.png" title="Desafio 300 min"/>:null}
+            {trophies.tensteps? <Trophies_card uri="https://media-public.canva.com/hCREs/MAEHuThCREs/1/t.png" title="10 minutos de passos"/>:null}
+            {trophies.king? <Trophies_card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Rei dos Desafios"/>:null}
+            {trophies.firstChallenge? <Trophies_card useImage={true} title="1º desafio completo"/>:null}
+            {trophies.help? <Trophies_card uri="https://media-public.canva.com/fptjU/MACpOTfptjU/2/t.png" title="Pedindo ajuda"/>:null}
+            {trophies.musclesixty? <Trophies_card uri="https://media-public.canva.com/d3qUs/MAEqEEd3qUs/1/t.png" title="60 minutos de musculação"/>:null}
+            {trophies.lightrunning? <Trophies_card uri="https://media-public.canva.com/Tep_Y/MAEqtwTep_Y/1/t.png" title="Corrida leve"/>:null}
+
           </View>
         </View>
       </View>
