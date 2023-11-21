@@ -1,9 +1,7 @@
 import { StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native"
 import Pad from '../components/pad';
-import TitledTextInput from '../components/titled_text_input';
 import { useState } from "react";
-import Base_screen from "../components/base_screen";
-import { auth } from "../firebase";
+import { auth } from "../firebase.js";
 
 
 const LogIn = ({navigation}) => {
@@ -51,6 +49,14 @@ const LogIn = ({navigation}) => {
             backgroundColor: 'black',
             height:55,
             width:250,
+          },
+        input: {
+            height: 55,
+            margin: 12,
+            borderWidth: 0,
+            backgroundColor:"#D1D1D1",
+            borderRadius:50,
+            padding: 10,
           },
       });
     
