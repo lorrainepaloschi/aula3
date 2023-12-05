@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Pressable, Image } from "react-native"
+import { StyleSheet, Text, Pressable, Image, View  } from "react-native"
 
 
 export default trophies_card = (props) => {
@@ -39,10 +39,17 @@ export default trophies_card = (props) => {
           source={require('../assets/icons8-goal-100.png')}/>)
       }
 
+      let opacityValue = 0.5
+      if (props.enabled) {
+        opacityValue = 1;
+      }
+
     return(
+      <View style={{opacity: opacityValue}}>
         <Pressable style={styles.button} onPress={props.action}>
           {filler()}
           <Text style={styles.text}>{props.title}</Text>
         </Pressable>
+      </View>
     )
 }

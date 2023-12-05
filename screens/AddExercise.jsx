@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, ScrollView, Pressable, Image} from "react-native"
+import { StyleSheet, View, Text, TextInput, ScrollView, Pressable, Image, Alert} from "react-native"
 import Pad from "../components/pad";
 import SelectDropdown from 'react-native-select-dropdown'
 import { AddNewTrophies, TrophiesClass, SetTrophies} from "../data/trophies";
@@ -11,6 +11,21 @@ let modalidadeEscolhida = ""
 let dificuldadeEscolhida = ""
 let tempoInserido = 0
 
+const showAlert = () =>
+  Alert.alert(
+    'Sucesso',
+    'Seu exercicio foi cadastrado',
+    [
+      {
+        text: 'OK',
+        style: 'cancel',
+      },
+    ],
+    {
+      cancelable: true,
+    },
+  );
+
 function addNewTrophies(){
   tempoInserido
   var bike = (modalidadeEscolhida === "Bicicletas" && tempoInserido >= 300)
@@ -20,6 +35,8 @@ function addNewTrophies(){
   var lightrunning = modalidadeEscolhida === "Corrida" && dificuldadeEscolhida <= 2
 
   AddNewTrophies(new TrophiesClass(false, tensteps, bike, true, "", help, musclesixty, lightrunning))
+  showAlert()
+  console.log("clicou")
 }
 
 const AddExerciseScreen = ({navigation}) => {

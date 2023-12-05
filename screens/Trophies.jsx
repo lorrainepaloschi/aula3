@@ -57,13 +57,14 @@ const TrophiesScreen = ({navigation}) => {
         {trophies.uid == null ?GetTrophies(setTrophies):null}
         <View style={{flexDirection: 'column', rowGap:12}}>
           <View style={styles.Row}>
-            {trophies.bike? <Trophies_card uri="https://media-public.canva.com/2JxaM/MAEF192JxaM/1/t.png" title="Desafio 300 min"/>:null}
-            {trophies.tensteps? <Trophies_card uri="https://media-public.canva.com/hCREs/MAEHuThCREs/1/t.png" title="10 minutos de passos"/>:null}
-            {trophies.king? <Trophies_card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Rei dos Desafios"/>:null}
-            {trophies.firstChallenge? <Trophies_card useImage={true} title="1º desafio completo"/>:<Trophies_card useImage={true} title="Adicione exercicios para ter troféus!"/>}
-            {trophies.help? <Trophies_card uri="https://media-public.canva.com/fptjU/MACpOTfptjU/2/t.png" title="Pedindo ajuda"/>:null}
-            {trophies.musclesixty? <Trophies_card uri="https://media-public.canva.com/d3qUs/MAEqEEd3qUs/1/t.png" title="60 minutos de musculação"/>:null}
-            {trophies.lightrunning? <Trophies_card uri="https://media-public.canva.com/Tep_Y/MAEqtwTep_Y/1/t.png" title="Corrida leve"/>:null}
+            <Trophies_card uri="https://media-public.canva.com/MADpju6f7t8/1/thumbnail.png" title="Adicione exercicios para ter troféus!" enabled={true} />
+            <Trophies_card useImage={true} title="1º desafio completo" enabled = {trophies.firstChallenge} />
+            <Trophies_card uri="https://media-public.canva.com/2JxaM/MAEF192JxaM/1/t.png" title="Desafio 300 min" enabled={trophies.bike} />
+            <Trophies_card uri="https://media-public.canva.com/hCREs/MAEHuThCREs/1/t.png" title="10 minutos de passos" enabled={trophies.tensteps}/>
+            <Trophies_card uri="https://media-public.canva.com/LYxlQ/MAEq6ILYxlQ/1/t.png" title="Rei dos Desafios" enabled={trophies.king}/>
+            <Trophies_card uri="https://media-public.canva.com/fptjU/MACpOTfptjU/2/t.png" title="Pedindo ajuda" enabled={trophies.help}/>
+            <Trophies_card uri="https://media-public.canva.com/d3qUs/MAEqEEd3qUs/1/t.png" title="60 minutos de musculação" enabled={trophies.musclesixty}/>
+            <Trophies_card uri="https://media-public.canva.com/Tep_Y/MAEqtwTep_Y/1/t.png" title="Corrida leve" enabled={trophies.lightrunning}/>
 
           </View>
         </View>
